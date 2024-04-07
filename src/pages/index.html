@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/default.css">
+    <title>Jogaço da Véia</title>
+</head>
+
+<body style="background-image: url('../media/background.jpg')">
+
+    <div class="container">
+        <h1>Jogaço da Véia</h1>
+        <div id="score" class="score">Jogador 1: 0 | Jogador 2: 0</div>
+        <div id="board" class="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div id="endGame" class="end-game">
+            <button id="resetBtn" onclick="resetScore()">Zerar Placar</button>
+        </div>
+
+        <button id="soundButton">Configurar Som</button>
+
+        <audio id="backgroundMusic" loop>
+            <source src="../media/backgroundMusic.mp3" type="audio/mp3">
+            Seu navegador não suporta áudio.
+        </audio>
+        
+    </div>
+
+</body>
+<script src="/script.js"></script>
+
+</html>
