@@ -63,7 +63,7 @@ function makeMove(index) {
             gameEnded = true;
         }
         else if (checkDraw()) {
-            alert("Deu velha! Empate!");
+            alert("Deu véia! Empate!");
             gameEnded = true;
         }
         else {
