@@ -4,19 +4,17 @@ class JogoDaVelha {
     private jogoEncerrado: boolean; // Indica se o jogo está encerrado ou não
 
     constructor() {
-        // Inicializa o tabuleiro preenchendo-o com '-' para representar as casas vazias
-        this.tabuleiro = Array(9).fill('-');
+        this.tabuleiro = Array(9).fill('-'); // Inicializa o tabuleiro preenchendo-o com '-' para representar as casas vazias
         this.jogadorAtual = 'X'; // Começa com o jogador X
         this.jogoEncerrado = false; // Inicialmente o jogo não está encerrado
     }
 
-    public jogar(): void {
-        // Loop principal do jogo
+    public jogar(): void { // Loop principal do jogo
         while (!this.jogoEncerrado) {
             this.exibirTabuleiro(); // Mostra o tabuleiro atual
             this.fazerJogada(); // Permite ao jogador atual fazer uma jogada
-            // Verifica se houve vitória ou empate
-            if (this.verificarVitoria() || this.verificarEmpate()) {
+
+            if (this.verificarVitoria() || this.verificarEmpate()) { // Verifica se houve vitória ou empate
                 this.exibirTabuleiro(); // Mostra o tabuleiro final
                 this.encerrarJogo(); // Encerra o jogo
             }
@@ -26,6 +24,7 @@ class JogoDaVelha {
 
     private fazerJogada(): void {
         let posicao: number;
+
         // Loop para garantir que a posição digitada seja válida e vazia
         do {
             posicao = parseInt(prompt(`Jogador ${this.jogadorAtual}, digite o número da posição da célula do tabuleiro para jogar (do 1 ao 9 em, sem gracinha 😑):`)) - 1;
@@ -35,15 +34,13 @@ class JogoDaVelha {
     }
 
     private verificarVitoria(): boolean {
-        // Define todas as combinações de vitória possíveis no jogo da velha
-        const combinacoesVitoria: number[][] = [
+        const combinacoesVitoria: number[][] = [ // Define todas as combinações de vitória possíveis no jogo da véia
             [0, 1, 2], [3, 4, 5], [6, 7, 8],   // Linhas
             [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
             [0, 4, 8], [2, 4, 6], // Diagonais
         ];
 
-        // Percorre todas as combinações e verifica se algum jogador ganhou
-        for (const combinacao of combinacoesVitoria) {
+        for (const combinacao of combinacoesVitoria) { // Percorre todas as combinações e verifica se algum jogador ganhou
             const [a, b, c] = combinacao;
             if (this.tabuleiro[a] !== '-' && this.tabuleiro[a] === this.tabuleiro[b] && this.tabuleiro[a] === this.tabuleiro[c]) {
                 alert(`Jogador ${this.jogadorAtual} ganhou!`); // Exibe uma mensagem indicando o vencedor
@@ -55,8 +52,8 @@ class JogoDaVelha {
     }
 
     private verificarEmpate(): boolean {
-        // Verifica se não há mais casas vazias no tabuleiro
-        if (!this.tabuleiro.includes('-')) {
+
+        if (!this.tabuleiro.includes('-')) { // Verifica se não há mais casas vazias no tabuleiro
             alert('Deu véia! Empate!'); // Exibe uma mensagem indicando empate
             return true; // Retorna true indicando que houve um empate
         }
@@ -64,8 +61,8 @@ class JogoDaVelha {
     }
 
     private alternarJogador(): void {
-        // Alterna entre os jogadores X e O
-        this.jogadorAtual = this.jogadorAtual === 'X' ? 'O' : 'X';
+        
+        this.jogadorAtual = this.jogadorAtual === 'X' ? 'O' : 'X'; // Alterna entre os jogadores X e O
     }
 
     private exibirTabuleiro(): void {
