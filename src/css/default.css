@@ -12,7 +12,13 @@ body {
 }
 
 .container {
+    height: 35%;
     text-align: center;
+    background-color: #000000;
+    padding: 40px;
+    border-radius: 10mm;
+    color: #f8f9fa;
+    box-shadow: 10px 5px 5px #ff0000;
 }
 
 h1 {
@@ -31,6 +37,7 @@ h1 {
     grid-gap: 5px;
     width: 300px;
     margin: 0 auto;
+    color: rgb(0, 156, 0);
 }
 
 .cell {
@@ -45,9 +52,43 @@ h1 {
 }
 
 .cell:hover {
-    background-color: #f0f0f0;
+    background-color: #ff0000;
 }
 
 .end-game {
     margin-top: 1rem;
+}
+
+#resetBtn {
+    width: 177px;
+    height: 30px;
+    border: none;
+    border-radius: 3mm;
+    background-color: red;
+    color: #fff;
+    border: rgb(255, 255, 255) solid 1px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    &:hover {
+        background-color: #fff;
+        color: rgb(0, 156, 0);
+        transition: 1s;
+    }
+}
+
+#soundButton {
+    width: 177px;
+    height: 30px;
+    border: none;
+    border-radius: 3mm;
+    background-color: red;
+    color: #fff;
+    border: rgb(255, 255, 255) solid 1px;
+    cursor: pointer;
+    &:hover {
+        background-color: #fff;
+        color: rgb(0, 156, 0);
+        transition: 1s;
+    }
+    
 }
