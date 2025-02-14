@@ -2,7 +2,7 @@
 
 export class Sound {
     constructor() {
-        this.isSoundOn = true; // Estado inicial do som (desligado)
+        this.isSoundOn = false; // Estado inicial do som (desligado)
         this.backgroundMusic = document.getElementById("backgroundMusic"); // Obtém o elemento de áudio
         this.soundButton = document.getElementById("soundButton"); // Obtém o botão de controle de som
 
