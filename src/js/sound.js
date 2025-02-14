@@ -1,36 +1,53 @@
 "use strict";
 
+// Classe responsável pelo controle do som
 export class Sound {
     constructor() {
-        this.isSoundOn = false; // Estado inicial do som (desligado)
-        this.backgroundMusic = document.getElementById("backgroundMusic"); // Obtém o elemento de áudio
-        this.soundButton = document.getElementById("soundButton"); // Obtém o botão de controle de som
+        // Estado inicial: som desligado
+        this.isSoundOn = false;
 
-        // Adiciona um evento ao botão para alternar o som, se os elementos existirem
+        // Obtém os elementos HTML necessários
+        this.backgroundMusic = document.getElementById("backgroundMusic"); // Elemento <audio>
+        this.soundButton = document.getElementById("soundButton"); // Botão de controle de som
+
+        // Cria um Web Worker que será usado para alternar o estado do som
+        this.worker = new Worker("soundWorker.js");
+
+        // Se os elementos existem, adiciona um evento de clique ao botão de som
         if (this.backgroundMusic && this.soundButton) {
             this.soundButton.addEventListener("click", () => this.toggleSound());
         }
+
+        // Ouvinte para receber mensagens do Worker
+        this.worker.onmessage = (e) => {
+            // Atualiza o estado do som com a resposta do Worker
+            this.isSoundOn = e.data.isSoundOn;
+            this.updateButtonLabel(); // Atualiza o ícone do botão
+
+            // Se o som está ligado, toca a música; caso contrário, pausa
+            if (this.isSoundOn) {
+                this.backgroundMusic.play().catch(console.warn);
+            } else {
+                this.backgroundMusic.pause();
+            }
+        };
     }
 
-    // Alterna entre ativar e desativar o som
+    // Envia o estado atual para o Worker decidir o próximo estado
     toggleSound() {
-        if (!this.backgroundMusic) return; // Se o áudio não existir, não faz nada
-
-        // Se o som está ligado, pausa; senão, inicia a reprodução
-        this.isSoundOn ? this.backgroundMusic.pause() : this.backgroundMusic.play().catch(console.warn);
-        this.isSoundOn = !this.isSoundOn; // Alterna o estado do som
-        this.updateButtonLabel(); // Atualiza o ícone do botão
+        if (!this.backgroundMusic) return; // Se o elemento <audio> não existe, não faz nada
+        this.worker.postMessage({ isSoundOn: this.isSoundOn }); // Envia o estado atual para o Worker processar
     }
 
-    // Atualiza o botão de som para mostrar um ícone de ativado ou desativado
+    // Atualiza o botão de som para exibir o ícone correto
     updateButtonLabel() {
         if (this.soundButton) {
-            this.soundButton.innerText = this.isSoundOn ? "🔇" : "🔊";
+            this.soundButton.innerText = this.isSoundOn ? "🔇" : "🔊"; // Altera o ícone do botão
         }
     }
 }
 
-// Garante que o código só seja executado após o carregamento completo da página
+// Aguarda o carregamento da página para inicializar a classe Sound
 document.addEventListener("DOMContentLoaded", () => {
     const sound = new Sound(); // Cria uma instância da classe Sound
     const originalButton = document.getElementById("soundButton"); // Obtém o botão de som original
