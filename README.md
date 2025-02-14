@@ -5,7 +5,7 @@ Um jogo da velha interativo desenvolvido em **JavaScript, HTML e CSS**, permitin
 ## 📌 Funcionalidades
 
 - 🆚 **Modo 2 Jogadores**: Duas pessoas podem jogar alternadamente.
-- 🤖 **Modo Contra a CPU**: Escolha entre **fácil, médio e difícil**.
+- 🤖 **Modo Contra a CPU**: Escolha entre **fácil, médio, Igual a Vida**.
 - 🔊 **Música de Fundo**: Controle o som do jogo com um botão dedicado.
 - 🏆 **Placar**: Exibe a pontuação de cada jogador.
 - 🔄 **Reinício do Jogo**: Botão para zerar o placar e reiniciar o jogo.
@@ -23,6 +23,22 @@ Um jogo da velha interativo desenvolvido em **JavaScript, HTML e CSS**, permitin
 ## 🛠️ Tecnologias Utilizadas
 
 - **JavaScript**
-- **HTML5**
-- **CSS3**
+- **HTML**
+- **CSS**
 
+## 🚀 Teste o Jogo Online
+
+🔗 Acesse o jogo através do link: [Jogue Agora](https://gamedavelha.onrender.com/)
+
+## 👥 Contribuidores
+
+Agradecimentos aos desenvolvedores que contribuíram para este projeto:
+
+- **Mardone Silva Pereira (Níveis de Dificuldade)** - _Colaborador_
+- **Francisco Igor Silva Santos (Organização da Estrutura)** - _Colaborador_
+
+📢 Se você deseja contribuir, fique à vontade para abrir uma **issue** ou enviar um **pull request**!
+
+---
+
+💡 _Divirta-se jogando e desenvolvendo!_ 🎉
