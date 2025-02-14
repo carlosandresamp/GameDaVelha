@@ -2,41 +2,53 @@
 <html lang="PT-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/default.css">
-    <title>Jogaço da Véia</title>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para suportar caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade para dispositivos móveis -->
+    <link rel="stylesheet" href="../css/default.css"> <!-- Importa o arquivo de estilos CSS -->
+    <link rel="shortcut icon" href="../media/icon.png" type="image/x-icon">
+    <title>Jogo da Velha</title> <!-- Define o título da página -->
 </head>
 
-<body style="background-image: url('../media/background.jpg')">
+<body style="background-image: url('../media/background.jpg')"> <!-- Define a imagem de fundo da página -->
 
-    <div class="container">
-        <h1>Jogaço da Véia</h1>
-        <div id="score" class="score">Jogador 1: 0 | Jogador 2: 0</div>
-        <div id="board" class="board">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
+    <div class="container"> <!-- Contêiner principal do jogo -->
+        <h1>Jogo da Velha</h1> <!-- Título principal -->
+
+        <!-- Escolha do modo de jogo -->
+        <div id="game-options" class="game-options">
+            <button onclick="startGame(false)">2 Jogadores</button> <!-- Botão para iniciar o jogo entre dois jogadores -->
+
+            <div class="dropdown"> <!-- Menu suspenso para jogar contra a CPU -->
+                <button>Contra a CPU</button> <!-- Botão para exibir os níveis de dificuldade -->
+                <div class="dropdown-content"> <!-- Lista de opções de dificuldade -->
+                    <button id="nivelFacil" onclick="startGame(true, 'easy')">Fácil</button> <!-- Modo fácil -->
+                    <button id="nivelMedio" onclick="startGame(true, 'medium')">Médio</button> <!-- Modo médio -->
+                    <button id="nivelDificil" onclick="startGame(true, 'hard')">Igual a Vida</button> <!-- Modo difícil -->
+                </div>
+            </div>
+            
+            <button id="soundButton">Som</button> <!-- Botão para ativar ou desativar o som -->
         </div>
-        <div id="endGame" class="end-game">
-            <button id="resetBtn" onclick="resetScore()">Zerar Placar</button>
+
+        <!-- Placar (escondido até o jogo começar) -->
+        <div id="score" class="score" style="display: none;"></div> <!-- Exibe a pontuação do jogo -->
+
+        <!-- Tabuleiro (escondido até o jogo começar) -->
+        <div id="board" class="board" style="display: none;"></div> <!-- Estrutura do tabuleiro do jogo -->
+
+        <!-- Botões de controle do jogo (escondidos até o jogo começar) -->
+        <div id="endGame" class="end-game" style="display: none;">
+            <button id="resetBtn">Zerar Placar</button> <!-- Botão para zerar a pontuação -->
+            <button id="backToStartBtn">Voltar ao Início</button> <!-- Botão para retornar à tela inicial -->
         </div>
 
-        <button id="soundButton">Configurar Som</button>
-
+        <!-- Elemento de áudio para a música de fundo -->
         <audio id="backgroundMusic" loop>
-            <source src="../media/backgroundMusic.mp3" type="audio/mp3">
+            <source src="../media/backgroundMusic.mp3" type="audio/mp3"> <!-- Fonte do arquivo de áudio -->
         </audio>
-        
     </div>
 
 </body>
-<script src="../../script.js"></script>
+<script type="module" src="../../main.js"></script> <!-- Importa o script principal do jogo -->
 
 </html>

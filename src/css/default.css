@@ -1,95 +1,302 @@
+/* Define estilos globais para o corpo da página */
 body {
     font-family: Arial, sans-serif;
+    /* Define a fonte principal */
     margin: 0;
+    /* Remove margens padrão */
     padding: 0;
+    /* Remove preenchimento padrão */
     display: flex;
+    /* Usa flexbox para centralizar conteúdo */
     justify-content: center;
+    /* Centraliza horizontalmente */
     align-items: center;
+    /* Centraliza verticalmente */
     height: 100vh;
+    /* Ocupa toda a altura da tela */
     background-color: #f8f9fa;
+    /* Define a cor de fundo */
     background-size: cover;
+    /* Garante que a imagem de fundo cubra toda a tela */
     background-repeat: no-repeat;
+    /* Impede a repetição da imagem de fundo */
 }
 
+/* Estiliza o container principal */
 .container {
-    height: 55%;
+    width: 90%;
+    /* Define a largura como 90% da tela */
+    max-width: 400px;
+    /* Limita a largura máxima a 400px */
+    min-width: 280px;
+    /* Define uma largura mínima de 280px */
+    height: auto;
+    /* Altura ajustável conforme o conteúdo */
+    max-height: 90vh;
+    /* Define altura máxima de 90% da tela */
+    min-height: 400px;
+    /* Define altura mínima de 400px */
     text-align: center;
+    /* Centraliza o texto */
     background-color: #000000;
+    /* Define cor de fundo preta */
     padding: 40px;
+    /* Espaçamento interno */
     border-radius: 10mm;
+    /* Arredonda as bordas */
     color: #f8f9fa;
+    /* Define a cor do texto */
     box-shadow: 10px 5px 5px #ff0000;
+    /* Adiciona sombra com cor vermelha */
+    flex-direction: column;
+    /* Organiza os elementos em coluna */
+    display: flex;
+    /* Ativa o display flex */
+    align-items: center;
+    /* Centraliza elementos horizontalmente */
+    justify-content: center;
+    /* Centraliza elementos verticalmente */
+    margin: 20px auto;
+    /* Adiciona espaçamento nas laterais */
 }
 
+/* Estiliza o título principal */
 h1 {
     font-size: 2rem;
+    /* Define o tamanho da fonte */
     margin-bottom: 1rem;
+    /* Espaçamento abaixo do título */
 }
 
+/* Estiliza a pontuação */
 .score {
     font-size: 1.5rem;
+    /* Define o tamanho da fonte */
     margin-bottom: 1rem;
+    /* Espaçamento abaixo do elemento */
 }
 
+/* Estiliza o tabuleiro do jogo */
 .board {
     display: grid;
+    /* Usa grid para organizar os elementos */
     grid-template-columns: repeat(3, 1fr);
+    /* Cria 3 colunas iguais */
     grid-gap: 5px;
+    /* Define espaçamento entre as células */
     width: 300px;
+    /* Define largura do tabuleiro */
     margin: 0 auto;
-    color: rgb(0, 156, 0);
+    /* Centraliza o tabuleiro */
+    color: rgb(0, 255, 0);
+    /* Define a cor do texto */
 }
 
+/* Estiliza as células do tabuleiro */
 .cell {
+    width: 80px;
+    /* Define a largura das células */
+    height: 80px;
+    /* Define a altura das células */
+    border: 2px solid black;
+    /* Adiciona borda preta */
     display: flex;
-    justify-content: center;
+    /* Ativa flexbox */
     align-items: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    font-size: 2rem;
+    /* Centraliza conteúdo verticalmente */
+    justify-content: center;
+    /* Centraliza conteúdo horizontalmente */
+    font-size: 2em;
+    /* Define o tamanho da fonte */
     cursor: pointer;
-    transition: background-color 0.3s;
+    /* Transforma o cursor em ponteiro ao passar */
+    background-color: #fff;
+    /* Define a cor de fundo branca */
+    border-radius: 10px;
+    /* Define o formato das bordas (arredondadas) */
+    border-color: #ff0000;
+    /* Define a cor da borda (vermelha) */
 }
 
+/* Muda a cor ao passar o mouse sobre a célula */
 .cell:hover {
-    background-color: #ff0000;
+    background-color: #00000083;
 }
 
+/* Estiliza a área de fim de jogo */
 .end-game {
     margin-top: 1rem;
+    /* Adiciona espaçamento acima */
 }
 
+/* Estiliza o botão de reset */
 #resetBtn {
-    width: 177px;
-    height: 30px;
+    width: 200px;
+    height: 40px;
     border: none;
-    border-radius: 3mm;
+    border-radius: 10px;
     background-color: red;
-    color: #fff;
-    border: rgb(255, 255, 255) solid 1px;
-    margin-bottom: 7px;
-    margin-top: 25px;
+    color: white;
+    font-size: 1.2em;
     cursor: pointer;
-    &:hover {
-        background-color: #fff;
-        color: rgb(0, 156, 0);
-        transition: 1s;
-    }
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
+/* Muda a cor do botão de reset ao passar o mouse */
+#resetBtn:hover {
+    background-color: white;
+    color: red;
+}
+
+/* Estiliza o botão de som */
 #soundButton {
-    width: 177px;
-    height: 30px;
+    width: 200px;
+    height: 40px;
     border: none;
-    border-radius: 3mm;
+    border-radius: 10px;
     background-color: red;
-    color: #fff;
-    border: rgb(255, 255, 255) solid 1px;
+    color: white;
+    font-size: 1.2em;
     cursor: pointer;
-    &:hover {
-        background-color: #fff;
-        color: rgb(0, 156, 0);
-        transition: 1s;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 10px;
+}
+
+/* Muda a cor do botão de som ao passar o mouse */
+#soundButton:hover {
+    background-color: white;
+    color: red;
+}
+
+/* Estiliza o botão clonado de som */
+#clonedSoundButton {
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 100px;
+    /* Torna o botão redondo */
+    background-color: red;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 10px;
+}
+
+/* Muda a cor do botão clonado ao passar o mouse */
+#clonedSoundButton:hover {
+    background-color: white;
+    color: red;
+}
+
+/* Estiliza o botão de voltar ao início */
+#backToStartBtn {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* Muda a cor do botão de voltar ao início ao passar o mouse */
+#backToStartBtn:hover {
+    background-color: white;
+    color: red;
+}
+
+/* Estiliza as opções de jogo */
+.game-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Adiciona espaçamento entre os botões */
+}
+
+/* Estiliza os botões das opções de jogo */
+.game-options button {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 10px;
+}
+
+/* Muda a cor dos botões ao passar o mouse */
+.game-options button:hover {
+    background-color: white;
+    color: red;
+}
+
+/* Estiliza o dropdown (menu suspenso) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Define o conteúdo do dropdown */
+.dropdown-content {
+    display: none;
+    /* Esconde o conteúdo por padrão */
+    position: absolute;
+    background-color: red;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+    /* Garante que fique acima de outros elementos */
+}
+
+/* Estiliza os botões dentro do dropdown */
+.dropdown-content button {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    text-align: center;
+}
+
+/* Muda a cor dos botões do dropdown ao passar o mouse */
+.dropdown-content button:hover {
+    background-color: white;
+    color: red;
+}
+
+/* Exibe o dropdown ao passar o mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 480px) {
+    .container {
+        width: 85%;
+        margin: 10px auto;
+        padding: 20px;
     }
-    
 }
