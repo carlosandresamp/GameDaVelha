@@ -28,7 +28,7 @@ Um jogo da velha interativo desenvolvido em **JavaScript, HTML e CSS**, permitin
 
 ## 🚀 Teste o Jogo Online
 
-🔗 Acesse o jogo através do link: [Jogue Agora](https://gamedavelha.onrender.com/)
+🔗 Acesse o jogo através do link: [Jogue Agora](https://github.com/carlosandresamp/GameDaVelha/releases)
 
 ## 👥 Contribuidores
 
